@@ -27,11 +27,6 @@ import {HexColorPicker} from "react-colorful";
 
 const useStyles = makeStyles({
     app: {
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        height: '100vh',
         background: '#555555',
     },
     boxCenter: {
@@ -269,8 +264,8 @@ function App() {
             </Snackbar>
             <Container>
                 <Grid container>
-                    <Grid item xs={2}/>
-                    <Grid item xs={4}>
+                    <Grid item md={2}/>
+                    <Grid item xs={12} md={4}>
                         <Card className={classes.imageBox}>
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">Original Image</Typography>
@@ -292,13 +287,13 @@ function App() {
                             </div>
                         </Card>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Card className={classes.configBox}>
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">Configuration</Typography>
                             </CardContent>
                             <Grid container>
-                                <Grid item xs={6}>
+                                <Grid item xs={12} lg={6}>
                                     <div className={classes.selectBox}>
                                         <FormControl sx={{m: 1, minWidth: 200}}>
                                             <InputLabel id="block-label">Block</InputLabel>
@@ -347,7 +342,7 @@ function App() {
                                         </FormControl>
                                     </div>
                                 </Grid>
-                                <Grid item xs={6}>
+                                <Grid item xs={12} lg={6}>
                                     <FormControl sx={{m: 1, minWidth: 200}}>
                                         <FormControlLabel control={<Checkbox/>} onChange={stretchedChange}
                                                           label="Stretch"/>
