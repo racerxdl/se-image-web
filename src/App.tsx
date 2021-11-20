@@ -200,7 +200,7 @@ function App() {
             setNotifOpen(true)
         }
     }, [])
-    const {getRootProps, isDragActive} = useDropzone({onDrop})
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
     const handleClose = (event: SyntheticEvent, reason?: SnackbarCloseReason) => {
         if (reason === 'clickaway') {
@@ -271,15 +271,15 @@ function App() {
                 <Grid container>
                     <Grid item xs={2}/>
                     <Grid item xs={4}>
-                        <Card {...getRootProps()} className={classes.imageBox}>
-                            <CardContent {...getRootProps()} >
+                        <Card className={classes.imageBox}>
+                            <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">Original Image</Typography>
                             </CardContent>
                             <div {...getRootProps()} className={classes.selectBox}
                                  style={{border: isDragActive ? '2px dashed green' : '2px dashed grey'}}>
                                 {imageSrc !== "" ?
-                                    <img alt="original" src={imageSrc} style={{maxHeight: 160, maxWidth: 160}}/> :
-                                    <p>Drop the image here</p>
+                                    <div><input {...getInputProps()} /><img alt="original" src={imageSrc} style={{maxHeight: 160, maxWidth: 160}}/></div> :
+                                    <div><input {...getInputProps()} /><p>Drop the image here or click to load</p></div>
                                 }
                             </div>
                         </Card>
