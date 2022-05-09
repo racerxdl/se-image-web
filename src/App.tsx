@@ -160,7 +160,9 @@ function App() {
                 W = width
                 H = height
             }
-
+            // ctx.translate(W, 0);
+            ctx.scale(-1, 1);
+            ctx.rotate(3.14/2);
             ctx.drawImage(imageData, X, Y, W, H);
             FilterCanvas(canvas, filter)
             setStringImage(buildImageString(canvas, `Size: ${width}x${height} - from Teske's Lab & Whiplash141`))
